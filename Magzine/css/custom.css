@@ -91,6 +91,7 @@ header#main .brand a {
 	font-size:2em;
 	color:#393f4a;
 	margin-bottom:20px;
+    
 }
 
 /*
@@ -220,9 +221,12 @@ nav#main ul li a:not(.button) {
 
 
 
-.recent .show-more {
+.show-more {
 	margin-top:40px;
 	font-weight:600;
+    display:inline-block;
+    text-align: inherit;
+  margin-left: 45%;
 }
 
 /*
