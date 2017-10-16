@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lab 3</title>
+    <style>
+
+      #triangle {
+        width: auto;
+		height: auto;
+        text-align: center;
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Simple_triangle.svg/220px-Simple_triangle.svg.png");
+        margin-top:20px;
+		background-repeat: no-repeat;
+      }
+
+      #circle {
+        width: 100%;
+		height: 220px;
+        text-align: center;
+		float: center;
+		background-image: url("https://vignette3.wikia.nocookie.net/math/images/5/5f/220px-Circle_-_black_simple.svg.png/revision/latest?cb=20140707144049&path-prefix=en");
+		margin-top:20px;
+		background-repeat: no-repeat;
+      }
+
+      #square {
+        width: 100%;
+		height: 220px;
+        text-align: center;
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Square_-_black_simple.svg/220px-Square_-_black_simple.svg.png");
+        margin-top:20px;
+		background-repeat: no-repeat;
+      }
+
+      #rectangle {
+        width: 100%;
+        text-align: center;
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Rectangle_Geometry_Vector.svg/220px-Rectangle_Geometry_Vector.svg.png");
+        margin-top:20px;
+		background-repeat: no-repeat;
+      }
+
+      #hexagon {
+        width: 100%;
+		height: 220px;
+        text-align: center;
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Hexagon.svg/220px-Hexagon.svg.png");
+        margin-top:20px;
+		background-repeat: no-repeat;
+      }
+
+      section {
+        text-align: center;
+        height: 70%;
+      }
+
+    </style>
+  </head>
+  <body>
+    <section id="section">
+      <button onclick="circleI()">Circle</button>
+      <button onclick="triangleI()">Triangle</button>
+      <button onclick="squareI()">Square</button>
+      <button onclick="rectangleI()">Rectangle</button>
+      <button onclick="hexagonI()">Hexagon</button>
+    </section>
+
+    <section id="triangle">
+      <p id="t1"></p>
+      <input type="text" id="t11"><br>
+      <p id="t2"></p>
+      <input type="text" id="t12"><br>
+      <p id="t3"></p>
+      <input type="text" id="t13"><br>
+      <p id="t8"></p>
+      <p id="t9"></p>
+      <button onclick="triangleO()">Submit</button>
+    </section>
+
+    <section id="circle">
+      <p id="c1"></p>
+      <input type="text" id="c11"><br>
+      <p id="c8"></p>
+      <p id="c9"></p>
+      <button onclick="circleO()">Submit</button>
+    </section>
+
+    <section id="square">
+      <p id="s1"></p>
+      <input type="text" id="s11"><br>
+      <p id="s8"></p>
+      <p id="s9"></p>
+      <button onclick="squareO()">Submit</button>
+    </section>
+
+    <section id="rectangle">
+      <p id="r1"></p>
+      <input type="text" id="r11"><br>
+      <p id="r2"></p>
+      <input type="text" id="r12"><br>
+      <p id="r8"></p>
+      <p id="r9"></p>
+      <button onclick="rectangleO()">Submit</button>
+    </section>
+
+    <section id="hexagon">
+      <p id="h1"></p>
+      <input type="text" id="h11"><br>
+      <p id="h8"></p>
+      <p id="h9"></p>
+
+      <button onclick="hexagonO()">Submit</button>
+    </section>
+
+    <script>
+      var x = document.getElementById("triangle");
+      x.style.display = 'none';
+      x = document.getElementById("circle");
+      x.style.display = 'none';
+      x = document.getElementById("rectangle");
+      x.style.display = 'none';
+      x = document.getElementById("square");
+      x.style.display = 'none';
+      x = document.getElementById("hexagon");
+      x.style.display = 'none';
+r
+      function triangleI() {
+
+        var x = document.getElementById("section");
+        x.style.display = 'none';
+        x = document.getElementById("triangle");
+        x.style.display = 'block';
+
+        document.getElementById("t1").innerHTML = "Side a in cm";
+        document.getElementById("t2").innerHTML = "Side b in cm";
+        document.getElementById("t3").innerHTML = "Side c in cm";
+      }
+
+      function triangleO() {
+        var x = document.getElementById("t11").value;
+        var y = document.getElementById("t12").value;
+        var z = document.getElementById("t13").value;
+
+        var perimeter = parseInt(x) + parseInt(y) + parseInt(z);
+        var p = perimeter / 2;
+        var a = p * (p - parseInt(x)) * (p - parseInt(y)) * (p - parseInt(z));
+        var area = Math.floor(Math.pow(a, 0.5) * 100) / 100;
+
+        document.getElementById("t8").innerHTML = "area : " + area + "cm square";
+        document.getElementById("t9").innerHTML = "perimeter : " + perimeter + "cm";
+      }
+
+      function circleI() {
+        var x = document.getElementById("section");
+        x.style.display = 'none';
+        x = document.getElementById("circle");
+        x.style.display = 'block';
+
+
+        document.getElementById("c1").innerHTML = "Radius in cm";
+      }
+
+      function circleO() {
+        var x = document.getElementById("c11").value;
+          
+        var perimeter = Math.floor(2 * 3.14 * parseInt(x) * 100) / 100;
+        var area = Math.floor(3.14 * parseInt(x) * parseInt(x) * 100) / 100;
+
+        document.getElementById("c8").innerHTML = "area : " + area + "cm square";
+        document.getElementById("c9").innerHTML = "perimeter : " + perimeter + "cm";
+      }
+
+      function squareI() {
+        var x = document.getElementById("section");
+        x.style.display = 'none';
+        x = document.getElementById("square");
+        x.style.display = 'block';
+
+        document.getElementById("s1").innerHTML = "Side in cm";
+      }
+
+      function squareO() {
+        var x = document.getElementById("s11").value;
+
+        var perimeter = 4 * parseInt(x);
+        var area = parseInt(x) * parseInt(x);
+
+        document.getElementById("s8").innerHTML = "area : " + area + "cm square";
+        document.getElementById("s9").innerHTML = "perimeter : " + perimeter + "cm";
+      }
+
+      function rectangleI() {
+        var x = document.getElementById("section");
+        x.style.display = 'none';
+        x = document.getElementById("rectangle");
+        x.style.display = 'block';
+
+        document.getElementById("r1").innerHTML = "Length in cm";
+        document.getElementById("r2").innerHTML = "Breadth in cm";
+      }
+
+      function rectangleO() {
+        var x = document.getElementById("r11").value;
+        var y = document.getElementById("r12").value;
+
+        var perimeter = (parseInt(x) * 2) + (parseInt(y) * 2);
+        var area = parseInt(x) * parseInt(y);
+
+        document.getElementById("r8").innerHTML = "area : " + area + "cm square";
+        document.getElementById("r9").innerHTML = "perimeter : " + perimeter + "cm";
+      }
+
+      function hexagonI() {
+        var x = document.getElementById("section");
+        x.style.display = 'none';
+        x = document.getElementById("hexagon");
+        x.style.display = 'block';
+
+        document.getElementById("h1").innerHTML = "Side in cm";
+      }
+
+      function hexagonO() {
+        var x = document.getElementById("h11").value;
+
+        var perimeter = parseInt(x) * 6;
+        var area = Math.floor(Math.pow(3, 0.5) * 1.5 * parseInt(x) * parseInt(x) * 100) / 100;
+
+        document.getElementById("h8").innerHTML = "area : " + area + "cm square";
+        document.getElementById("h9").innerHTML = "perimeter : " + perimeter + "cm";
+      }
+      
+    </script>
+
+  </body>
+</html>
